@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    font-size: 14pt;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(219, 219, 219);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 90%;
+}
+
+.form * {
+    padding: 10px;
+}
+
+#form1 {
+    margin-left: 112px;
+    border-radius: 10px;
+    background-color: rgb(235, 235, 235);
+}
+
+#form2 {
+    margin-left: 77px;
+    border-radius: 10px;
+    background-color: rgb(235, 235, 235);
+}
+
+#form3 {
+    margin-left: 80px;
+    border-radius: 10px;
+    background-color: rgb(235, 235, 235);
+}
+
+#form4 {
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: rgb(235, 235, 235);
+}
+
+.form ul {
+    margin-left: 20px;
+}
+
+h1 {
+    font-size: 20pt;
+    font-style: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#button {
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+#button:hover,
+#form1:hover,
+#form2:hover,
+#form3:hover,
+#form4:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+#form1:focus,
+#form2:focus,
+#form3:focus,
+#form4:focus {
+    background-color: rgb(255, 255, 255);
+}
+
+#button:active{
+    color: rgb(255, 255, 255);
+    background-color: rgb(96, 96, 96);
+}
