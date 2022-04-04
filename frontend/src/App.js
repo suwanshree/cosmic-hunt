@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Route } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import SplashPage from "./components/SplashPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -13,6 +15,11 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      {isLoaded && (
+        <Route path="/">
+          <SplashPage />
+        </Route>
+      )}
     </>
   );
 }
