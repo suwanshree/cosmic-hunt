@@ -6,7 +6,7 @@ function SplashPage() {
   return (
     <div className="pageContainer">
       <div className="backgroundContainer">
-        <img src="images/Sc3.jpg" alt="Background Image" />
+        <img src="images/Sc2.png" alt="Background Image" />
       </div>
       <div className="detailsContainer">
         <div className="nestedContainer">

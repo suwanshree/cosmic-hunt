@@ -5,10 +5,10 @@
 }
 
 .nav {
-    background-color: rgba(23, 137, 195, 0.3);
+    background-color: rgba(84, 134, 58, 0.3);
     padding-left: 10px;
     padding-right: 10px;
-    border: 2px solid rgb(28, 71, 93);
+    border-bottom: 2px solid rgb(42, 74, 23);
 }
 
 .navContainer {
@@ -27,13 +27,15 @@ ul.profile-dropdown {
 }
 
 a {
-    font-size: 20pt;
+    font-size: 18pt;
     color: rgb(0, 0, 0);
     margin: 5px;
     padding: 5px;
+    background-color: rgb(84, 134, 58);
     text-decoration: none;
     list-style-type: none;
     font-style: bold;
+    border-radius: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -41,12 +43,12 @@ a {
     border-radius: 10px;
     margin-bottom: 30px;
     margin-top: 10px;
+    background-color: rgb(108, 202, 121);
 }
 
 #button:hover,
 a:hover {
-    color: white;
-    background-color: rgb(28, 104, 139);
+    background-color: rgb(235, 235, 235);
     border-radius: 10px;
     cursor: pointer;
 }
@@ -60,7 +62,7 @@ a:hover {
     margin-top: 10px;
     font-size: 16pt;
     color: black;
-    background-color: rgb(28, 104, 139);
+    background-color: rgb(84, 134, 58);
     margin: 5px;
     padding: 5px;
     text-decoration: none;
@@ -108,7 +110,7 @@ a:hover {
     background-color: rgb(219, 219, 219);
     border-radius: 10px;
     padding: 10px;
-    background-color: rgb(80, 127, 148);
+    background-color: rgb(80, 148, 98);
 }
 
 .formContainer {
@@ -125,37 +127,37 @@ a:hover {
 #formA {
     margin-left: 10px;
     border-radius: 10px;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(174, 248, 180);
 }
 
 #formB {
     margin-left: 85px;
     border-radius: 10px;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(174, 248, 180);
 }
 
 #form1 {
     margin-left: 112px;
     border-radius: 10px;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(174, 248, 180);
 }
 
 #form2 {
     margin-left: 77px;
     border-radius: 10px;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(174, 248, 180);
 }
 
 #form3 {
     margin-left: 80px;
     border-radius: 10px;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(174, 248, 180);
 }
 
 #form4 {
     margin-left: 10px;
     border-radius: 10px;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(174, 248, 180);
 }
 
 .form ul {
@@ -174,7 +176,7 @@ h1 {
 #form2:hover,
 #form3:hover,
 #form4:hover {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(210, 249, 213);
 }
 
 #formA:focus,
@@ -183,5 +185,5 @@ h1 {
 #form2:focus,
 #form3:focus,
 #form4:focus {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(210, 249, 213);
 }
