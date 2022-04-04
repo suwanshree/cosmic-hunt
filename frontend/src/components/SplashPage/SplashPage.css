@@ -6,23 +6,33 @@
 }
 
 .detailsContainer {
+    padding-top: 370px;
+}
+
+.nestedContainer {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    padding-top: 400px;
+    background-color: rgba(23, 137, 195, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 300px;
+    margin-right: 300px;
 }
 
 h1, h2 {
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
     font-size: 50pt;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-shadow: -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 2px 0 rgb(0, 0, 0), 0 -2px black;
 }
 
 h2 {
     font-size: 20pt;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-shadow: -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 2px 0 rgb(0, 0, 0), 0 -2px black;
 }

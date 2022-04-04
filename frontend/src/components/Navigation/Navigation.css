@@ -5,14 +5,13 @@
 }
 
 .nav {
-    background-color: rgb(210, 210, 210);
+    background-color: rgba(23, 137, 195, 0.3);
     padding-left: 10px;
     padding-right: 10px;
-    border: 2px double rgb(175, 175, 175);
+    border: 2px solid rgb(28, 71, 93);
 }
 
 .navContainer {
-    opacity: 90%;
     width: 100%;
     position: fixed;
 }
@@ -29,7 +28,7 @@ ul.profile-dropdown {
 
 a {
     font-size: 20pt;
-    color: black;
+    color: rgb(0, 0, 0);
     margin: 5px;
     padding: 5px;
     text-decoration: none;
@@ -47,7 +46,7 @@ a {
 #button:hover,
 a:hover {
     color: white;
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(28, 104, 139);
     border-radius: 10px;
     cursor: pointer;
 }
@@ -61,6 +60,7 @@ a:hover {
     margin-top: 10px;
     font-size: 16pt;
     color: black;
+    background-color: rgb(28, 104, 139);
     margin: 5px;
     padding: 5px;
     text-decoration: none;
@@ -91,8 +91,7 @@ a:hover {
 .profileButton:hover,
 .signupButton:hover,
 .logoutButton:hover {
-    color: white;
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(235, 235, 235);
     border-radius: 10px;
     cursor: pointer;
 }
@@ -109,6 +108,7 @@ a:hover {
     background-color: rgb(219, 219, 219);
     border-radius: 10px;
     padding: 10px;
+    background-color: rgb(80, 127, 148);
 }
 
 .formContainer {
