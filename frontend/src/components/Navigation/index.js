@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import NewProductForm from "../NewProductFormModal";
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
@@ -13,9 +14,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <div className="loggedInNav">
-        <NavLink exact to="/products">
-          Host
-        </NavLink>
+        <NewProductForm user={sessionUser} />
         <ProfileButton user={sessionUser} />
       </div>
     );

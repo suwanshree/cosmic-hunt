@@ -94,7 +94,7 @@ router.post(
 
     if (validatorErrors.isEmpty()) {
       await product.save();
-      res.redirect("/products");
+      res.redirect("/products"); // may not need with modal
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       return res.json({

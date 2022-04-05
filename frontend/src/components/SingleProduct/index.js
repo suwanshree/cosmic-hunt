@@ -10,7 +10,7 @@ const SingleProduct = ({ product }) => {
           <p>{product.description}</p>
         </div>
       ) : (
-        "loading"
+        "Loading..."
       )}
     </>
   );

@@ -129,6 +129,55 @@ a:hover {
     padding: 10px;
 }
 
+.productFormContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 90%;
+}
+
+.productForm * {
+    padding: 10px;
+}
+
+.productForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(219, 219, 219);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(80, 148, 98);
+}
+
+.descriptionContainer {
+    display: flex;
+    padding-left: 0px;
+
+}
+
+#productForm1 {
+    margin-left: 80px;
+    border-radius: 10px;
+    background-color: rgb(174, 248, 180);
+    width: 700px;
+}
+
+#productForm2 {
+    margin-left: 30px;
+    border-radius: 10px;
+    background-color: rgb(174, 248, 180);
+    width: 700px;
+}
+
+#productForm3 {
+    margin-left: 15px;
+    border-radius: 10px;
+    background-color: rgb(174, 248, 180);
+    height: 200px;
+    width: 700px;
+}
+
 #formA {
     margin-left: 10px;
     border-radius: 10px;
@@ -169,6 +218,10 @@ a:hover {
     margin-left: 20px;
 }
 
+.productForm ul {
+    margin-left: 20px;
+}
+
 h1 {
     font-size: 20pt;
     font-style: bold;
@@ -180,7 +233,10 @@ h1 {
 #form1:hover,
 #form2:hover,
 #form3:hover,
-#form4:hover {
+#form4:hover,
+#productForm1:hover,
+#productForm2:hover,
+#productForm3:hover {
     background-color: rgb(210, 249, 213);
 }
 
@@ -189,6 +245,9 @@ h1 {
 #form1:focus,
 #form2:focus,
 #form3:focus,
-#form4:focus {
+#form4:focus,
+#productForm1:focus,
+#productForm2:focus,
+#productForm3:focus {
     background-color: rgb(210, 249, 213);
 }

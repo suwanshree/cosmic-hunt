@@ -20,7 +20,7 @@
     background-color: transparent;
 }
 
-img {
+.productContainer img {
     width: 750px;
     height: 500px;
     border-radius: 10px;

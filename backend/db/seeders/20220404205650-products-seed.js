@@ -31,7 +31,7 @@ module.exports = {
           imageUrl:
             "https://images.squarespace-cdn.com/content/v1/51965fafe4b0c4d402cd8a5b/1614994937449-F2GDPE96NMWU1ZHYH3JG/warp_ship.jpg",
           description:
-            "A warp drive is a spacecraft propulsion system only equipable by large spacecrafts. A spacecraft equipped with a warp drive may travel at speeds greater than that of light by many orders of magnitude. In contrast to some other fictitious faster-than-light technologies such as a jump drive, the warp drive does not permit instantaneous travel and transfers between two points, but rather involves a measurable passage of time which is pertinent to the concept.",
+            "A warp drive is a spacecraft propulsion system only equipable by large spacecrafts. A spacecraft equipped with a warp drive may travel at speeds greater than that of light by many orders of magnitude. In contrast to some other faster-than-light technologies such as a jump drive, the warp drive does not permit instantaneous travel and transfers between two points, but rather involves a measurable passage of time which is pertinent to the concept.",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
