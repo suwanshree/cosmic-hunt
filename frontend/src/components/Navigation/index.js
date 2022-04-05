@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
         <NavLink exact to="/products">
           Host
         </NavLink>
-        <ProfileButton user={sessionUser} />;
+        <ProfileButton user={sessionUser} />
       </div>
     );
   } else {

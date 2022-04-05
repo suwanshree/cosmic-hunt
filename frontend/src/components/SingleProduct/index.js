@@ -1,17 +1,13 @@
-import { useParams } from "react-router-dom";
 import "./SingleProduct.css";
 
-const SingleProduct = ({ products }) => {
-  const { id } = useParams();
-  // const singleArticle = articles.find(article => article.id === +id);
-  const singleProduct = products[id];
+const SingleProduct = ({ product }) => {
   return (
     <>
-      {singleProduct ? (
+      {product ? (
         <div className="singleProduct">
-          <h1>{singleProduct.title}</h1>
-          <img src={singleProduct.imageUrl} alt={singleProduct.title} />
-          <p>{singleProduct.description}</p>
+          <h1>{product.title}</h1>
+          <img src={product.imageUrl} alt={product.title} />
+          <p>{product.description}</p>
         </div>
       ) : (
         "loading"
