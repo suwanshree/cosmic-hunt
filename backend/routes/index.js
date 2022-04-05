@@ -4,6 +4,7 @@ const apiRouter = require("./api");
 const productsRouter = require("./products");
 router.use("/api", apiRouter);
 router.use("/products", productsRouter);
+
 // Static routes
 // Serve React build files in production
 if (process.env.NODE_ENV === "production") {

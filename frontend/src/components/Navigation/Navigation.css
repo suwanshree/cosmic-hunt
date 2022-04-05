@@ -26,6 +26,10 @@ ul.profile-dropdown {
     padding-inline-start: 0px;
 }
 
+.loggedInNav {
+    display:flex;
+}
+
 a {
     font-size: 18pt;
     color: rgb(0, 0, 0);

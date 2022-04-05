@@ -25,16 +25,16 @@ const productValidators = [
 
 // Get all products route
 router.get(
-  "/all",
+  "/",
   asyncHandler(async (req, res) => {
     const allProducts = await db.Product.findAll({
       order: [["createdAt", "DESC"]],
     });
-    return res.json(allProducts); // pass title here if needed
+    return res.json(allProducts); // pass title here if needed later
   })
 );
 
-// Delete particular product route (NEEDS CHECK)
+// Delete particular product route
 router.get(
   "/delete/:id(\\d+)",
   requireAuth,
@@ -76,7 +76,7 @@ router.get(
   })
 );
 
-// Post new Product route (NEEDS CHECK AND GET FORM)
+// Post new Product route (NEEDS CHECK AND MODAL IN FRONTEND)
 router.post(
   "/new",
   csrfProtection,
@@ -90,7 +90,6 @@ router.post(
       description,
       ownerId: req.session.auth.userId,
     });
-
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
