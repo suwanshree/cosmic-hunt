@@ -27,6 +27,8 @@ const ProductList = () => {
         >
           <NavLink to={`/products/${products[key].id}`}>
             {products[key].title}
+          </NavLink>
+          <NavLink to={`/products/${products[key].id}`}>
             {<img src={products[key].imageUrl} alt={products[key].title} />}
           </NavLink>
         </li>

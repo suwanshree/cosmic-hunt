@@ -62,13 +62,31 @@ a:hover {
 .profileButton,
 .signupButton,
 .logoutButton,
-.demoButton {
+.demoButton,
+.editProductButton,
+.deleteProductButton {
     border-radius: 10px;
     margin-bottom: 30px;
     margin-top: 10px;
     font-size: 16pt;
     color: black;
     background-color: rgb(84, 134, 58);
+    margin: 5px;
+    padding: 5px;
+    text-decoration: none;
+    list-style-type: none;
+    font-style: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.editProductButton,
+.deleteProductButton {
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    font-size: 16pt;
+    color: black;
+    background-color: rgb(225, 225, 225);
     margin: 5px;
     padding: 5px;
     text-decoration: none;
@@ -101,6 +119,19 @@ a:hover {
 .logoutButton:hover,
 .demoButton:hover {
     background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.editProductButton:hover {
+    background-color: rgb(84, 134, 58);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.deleteProductButton:hover {
+    color: white;
+    background-color: rgb(188, 20, 20);
     border-radius: 10px;
     cursor: pointer;
 }
