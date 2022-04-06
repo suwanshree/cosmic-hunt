@@ -61,7 +61,8 @@ a:hover {
 .loginButton,
 .profileButton,
 .signupButton,
-.logoutButton {
+.logoutButton,
+.demoButton {
     border-radius: 10px;
     margin-bottom: 30px;
     margin-top: 10px;
@@ -97,7 +98,8 @@ a:hover {
 .loginButton:hover,
 .profileButton:hover,
 .signupButton:hover,
-.logoutButton:hover {
+.logoutButton:hover,
+.demoButton:hover {
     background-color: rgb(235, 235, 235);
     border-radius: 10px;
     cursor: pointer;

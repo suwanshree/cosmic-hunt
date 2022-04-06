@@ -5,6 +5,7 @@ import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import NewProductForm from "../NewProductFormModal";
+import DemoUser from "../DemoUser";
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
@@ -21,9 +22,7 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <NavLink exact to="/products">
-          Demo
-        </NavLink>
+        <DemoUser />
         <LoginFormModal />
         <SignupFormModal />
       </>
