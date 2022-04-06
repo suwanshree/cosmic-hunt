@@ -13,6 +13,7 @@ const setUser = (user) => {
 const removeUser = () => {
   return {
     type: REMOVE_USER,
+    payload: null,
   };
 };
 
@@ -63,16 +64,17 @@ export const logout = () => async (dispatch) => {
 const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {
-  let newState;
   switch (action.type) {
     case SET_USER:
-      newState = Object.assign({}, state);
-      newState.user = action.payload;
-      return newState;
+      return {
+        ...state,
+        user: action.payload,
+      };
     case REMOVE_USER:
-      newState = Object.assign({}, state);
-      newState.user = null;
-      return newState;
+      return {
+        ...state,
+        user: action.payload,
+      };
     default:
       return state;
   }

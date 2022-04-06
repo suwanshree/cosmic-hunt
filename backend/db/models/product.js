@@ -1,4 +1,6 @@
 "use strict";
+const { Validator } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define("Product", {
     ownerId: {
@@ -19,8 +21,25 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
+
   Product.associate = function (models) {
     Product.belongsTo(models.User, { foreignKey: "ownerId" });
   };
+
+  Product.writeProduct = async function ({
+    ownerId,
+    title,
+    imageUrl,
+    description,
+  }) {
+    const product = await Product.create({
+      ownerId,
+      title,
+      imageUrl,
+      description,
+    });
+    return product;
+  };
+
   return Product;
 };

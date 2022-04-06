@@ -1,9 +1,9 @@
 const express = require("express");
-// const bcrypt = require("bcryptjs");
-const db = require("../db/models");
+const { Product } = require("../db/models");
 const { csrfProtection, asyncHandler } = require("../utils/async");
 const { validationResult, check } = require("express-validator");
 const { requireAuth } = require("../utils/auth");
+const { handleValidationErrors } = require("../utils/validation");
 
 const router = express.Router();
 
@@ -21,13 +21,14 @@ const productValidators = [
   check("description")
     .exists({ checkFalsy: true })
     .withMessage("Please provide description of Product"),
+  handleValidationErrors,
 ];
 
 // Get all products route
 router.get(
   "/",
   asyncHandler(async (req, res) => {
-    const allProducts = await db.Product.findAll({
+    const allProducts = await Product.findAll({
       order: [["createdAt", "DESC"]],
     });
     return res.json(allProducts); // pass title here if needed later
@@ -41,7 +42,7 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
-    const product = await db.Product.findByPk(productId);
+    const product = await Product.findByPk(productId);
     await product.destroy();
     res.redirect("/products");
   })
@@ -54,7 +55,7 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
-    const product = await db.Product.findByPk(productId);
+    const product = await Product.findByPk(productId);
     // , {
     //     include: [
     //       {
@@ -76,7 +77,7 @@ router.get(
   })
 );
 
-// Post new Product route (NEEDS CHECK AND MODAL IN FRONTEND)
+// Post new Product route
 router.post(
   "/new",
   csrfProtection,
@@ -84,31 +85,22 @@ router.post(
   requireAuth,
   asyncHandler(async (req, res) => {
     const { title, imageUrl, description } = req.body;
-    const product = db.Product.build({
+    const ownerId = req.user.id;
+    const product = await Product.writeProduct({
+      ownerId,
       title,
       imageUrl,
       description,
-      ownerId: req.session.auth.userId,
     });
-    const validatorErrors = validationResult(req);
-
-    if (validatorErrors.isEmpty()) {
-      await product.save();
-      res.redirect("/products"); // may not need with modal
-    } else {
-      const errors = validatorErrors.array().map((error) => error.msg);
-      return res.json({
-        title,
-        errors,
-        description,
-        csrfToken: req.csrfToken(),
-      });
-    }
+    return res.json({
+      product,
+      csrfToken: req.csrfToken(),
+    });
   })
 );
 
 // Edit existing Product route (NEEDS CHECK)
-router.post(
+router.put(
   "/:id(\\d+)",
   productValidators,
   requireAuth,

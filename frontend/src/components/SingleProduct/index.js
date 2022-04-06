@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
 import "./SingleProduct.css";
 
-const SingleProduct = ({ product }) => {
+const SingleProduct = () => {
+  const productId = useSelector((state) => state.productState.currentProductId);
+  const products = useSelector((state) => state.productState.products);
+  const product = products[productId];
   return (
     <>
       {product ? (

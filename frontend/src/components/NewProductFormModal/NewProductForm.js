@@ -49,7 +49,7 @@ function NewProductForm() {
           />
         </label>
         <div className="descriptionContainer">
-          <label for="descriptionarea">Description</label>
+          <label htmlFor="descriptionarea">Description</label>
           <textarea
             id="productForm3"
             name="descriptionarea"

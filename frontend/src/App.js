@@ -10,7 +10,6 @@ import SingleProduct from "./components/SingleProduct";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -22,13 +21,13 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/products/:id">
-            <SingleProduct product={product} />
+            <SingleProduct />
           </Route>
           <Route exact path="/">
             <SplashPage />
           </Route>
           <Route path="/products">
-            <ProductsPage setProduct={setProduct} />
+            <ProductsPage />
           </Route>
         </Switch>
       )}
