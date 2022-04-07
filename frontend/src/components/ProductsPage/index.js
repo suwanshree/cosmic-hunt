@@ -25,10 +25,10 @@ const ProductList = () => {
           key={products[key].id}
           onClick={() => handleOnClick(products[key].id)}
         >
-          <NavLink to={`/products/${products[key].id}`}>
+          <NavLink to={`/api/products/${products[key].id}`}>
             {products[key].title}
           </NavLink>
-          <NavLink to={`/products/${products[key].id}`}>
+          <NavLink to={`/api/products/${products[key].id}`}>
             {<img src={products[key].imageUrl} alt={products[key].title} />}
           </NavLink>
         </li>

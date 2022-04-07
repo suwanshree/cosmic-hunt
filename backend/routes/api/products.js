@@ -1,9 +1,9 @@
 const express = require("express");
-const { Product } = require("../db/models");
-const { csrfProtection, asyncHandler } = require("../utils/async");
+const { Product } = require("../../db/models");
+const { csrfProtection, asyncHandler } = require("../../utils/async");
 const { validationResult, check } = require("express-validator");
-const { requireAuth } = require("../utils/auth");
-const { handleValidationErrors } = require("../utils/validation");
+const { requireAuth } = require("../../utils/auth");
+const { handleValidationErrors } = require("../../utils/validation");
 
 const router = express.Router();
 

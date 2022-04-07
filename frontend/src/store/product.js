@@ -42,7 +42,7 @@ export const updateCurrentProductId = (product) => {
 };
 
 export const writeProduct = (payload) => async (dispatch) => {
-  const response = await csrfFetch("/products/new", {
+  const response = await csrfFetch("/api/products/new", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -58,7 +58,7 @@ export const writeProduct = (payload) => async (dispatch) => {
 };
 
 export const updateProduct = (payload) => async (dispatch) => {
-  const response = await csrfFetch(`/products/${payload.productId}`, {
+  const response = await csrfFetch(`/api/products/${payload.productId}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -74,7 +74,7 @@ export const updateProduct = (payload) => async (dispatch) => {
 };
 
 export const removeProduct = (payload) => async (dispatch) => {
-  const response = await csrfFetch(`/products/delete/${payload.id}`, {
+  const response = await csrfFetch(`/api/products/delete/${payload.id}`, {
     method: "DELETE",
   });
   dispatch(deleteProduct(payload));
@@ -82,7 +82,7 @@ export const removeProduct = (payload) => async (dispatch) => {
 };
 
 export const fetchProducts = () => async (dispatch) => {
-  const response = await csrfFetch("/products");
+  const response = await csrfFetch("/api/products");
   const products = await response.json();
   dispatch(loadProducts(products));
 };

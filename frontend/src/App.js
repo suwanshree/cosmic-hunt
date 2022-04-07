@@ -20,7 +20,7 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/products/:id">
+          <Route path="/api/products/:id">
             <SingleProduct />
           </Route>
           <Route exact path="/">
