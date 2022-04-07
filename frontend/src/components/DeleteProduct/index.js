@@ -9,6 +9,7 @@ function DeleteProduct() {
   const productId = useSelector((state) => state.productState.currentProductId);
   const products = useSelector((state) => state.productState.products);
   const product = products[productId];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(removeProduct(product));

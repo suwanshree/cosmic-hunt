@@ -74,19 +74,12 @@ export const updateProduct = (payload) => async (dispatch) => {
 };
 
 export const removeProduct = (payload) => async (dispatch) => {
+  console.log("PAYLOAD------------------------->", payload);
   const response = await csrfFetch(`/products/${payload.productId}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    method: "DELETE",
   });
-  if (response.ok) {
-    const product = await response.json();
-    dispatch(deleteProduct(product));
-    return product;
-  } else {
-    const error = await response.json();
-    return error;
-  }
+  dispatch(deleteProduct(payload));
+  return response;
 };
 
 export const fetchProducts = () => async (dispatch) => {
@@ -135,15 +128,9 @@ const productReducer = (state = initialState, action) => {
         products,
       };
     case DELETE_PRODUCT:
-      return {
-        ...state,
-        products: {
-          ...state.products,
-          [action.payload]: [...state.products[action.payload]].filter(
-            (x, index) => index !== action.payload.id
-          ),
-        },
-      };
+      newState = { ...state };
+      newState.payload = null;
+      return newState;
     default:
       return state;
   }

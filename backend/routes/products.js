@@ -36,15 +36,14 @@ router.get(
 );
 
 // Delete particular product route
-router.post(
+router.delete(
   "/delete/:id(\\d+)",
   requireAuth,
-  csrfProtection,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
     const product = await Product.findByPk(productId);
-    await product.destroy();
-    res.redirect("/products");
+    await product.destroy({ where: { id: productId } });
+    return res.json({ id: productId });
   })
 );
 
@@ -100,7 +99,7 @@ router.post(
   })
 );
 
-// Edit existing Product route (NEEDS CHECK)
+// Edit existing Product route
 router.post(
   "/:id(\\d+)",
   productValidators,
