@@ -16,7 +16,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 2,
+          ownerId: 1,
           title: "Shield Generator",
           imageUrl:
             "https://www.renderhub.com/zb3d/sci-fi-shield-generator/sci-fi-shield-generator-04.jpg",
@@ -26,7 +26,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 2,
+          ownerId: 1,
           title: "Warp Drive",
           imageUrl:
             "https://images.squarespace-cdn.com/content/v1/51965fafe4b0c4d402cd8a5b/1614994937449-F2GDPE96NMWU1ZHYH3JG/warp_ship.jpg",

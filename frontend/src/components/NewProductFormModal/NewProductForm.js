@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/product";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-function NewProductForm() {
+function NewProductForm({ setShowModal }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
@@ -12,13 +14,13 @@ function NewProductForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(
-      sessionActions.writeProduct({ title, imageUrl, description })
-    ).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-    });
-    // Close modal on submit before return here or redirect in backend
+    dispatch(sessionActions.writeProduct({ title, imageUrl, description }))
+      .then(() => setShowModal(false))
+      .then(() => history.push("/products"))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
   };
 
   return (

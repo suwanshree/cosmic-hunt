@@ -49,7 +49,39 @@ export const writeProduct = (payload) => async (dispatch) => {
   });
   if (response.ok) {
     const product = await response.json();
-    dispatch(addProduct(product));
+    dispatch(addProduct(product.data));
+    return product;
+  } else {
+    const error = await response.json();
+    return error;
+  }
+};
+
+export const updateProduct = (payload) => async (dispatch) => {
+  const response = await csrfFetch(`/products/${payload.productId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (response.ok) {
+    const product = await response.json();
+    dispatch(editProduct(product));
+    return product;
+  } else {
+    const error = await response.json();
+    return error;
+  }
+};
+
+export const removeProduct = (payload) => async (dispatch) => {
+  const response = await csrfFetch(`/products/${payload.productId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (response.ok) {
+    const product = await response.json();
+    dispatch(deleteProduct(product));
     return product;
   } else {
     const error = await response.json();
@@ -60,7 +92,7 @@ export const writeProduct = (payload) => async (dispatch) => {
 export const fetchProducts = () => async (dispatch) => {
   const response = await csrfFetch("/products");
   const products = await response.json();
-  dispatch(loadProducts(products)); // updating the state
+  dispatch(loadProducts(products));
 };
 
 const initialState = {
@@ -94,6 +126,23 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         currentProductId: action.payload,
+      };
+    case EDIT_PRODUCT:
+      products = { ...state.products };
+      products[action.payload.id] = action.payload;
+      return {
+        ...state,
+        products,
+      };
+    case DELETE_PRODUCT:
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          [action.payload]: [...state.products[action.payload]].filter(
+            (x, index) => index !== action.payload.id
+          ),
+        },
       };
     default:
       return state;

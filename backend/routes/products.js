@@ -31,12 +31,12 @@ router.get(
     const allProducts = await Product.findAll({
       order: [["createdAt", "DESC"]],
     });
-    return res.json(allProducts); // pass title here if needed later
+    return res.json(allProducts);
   })
 );
 
 // Delete particular product route
-router.get(
+router.post(
   "/delete/:id(\\d+)",
   requireAuth,
   csrfProtection,
@@ -51,7 +51,7 @@ router.get(
 // Get particular product route
 router.get(
   "/:id(\\d+)",
-  //   requireAuth,
+  requireAuth,
   csrfProtection,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
@@ -92,22 +92,23 @@ router.post(
       imageUrl,
       description,
     });
+    const data = product.dataValues;
     return res.json({
-      product,
+      data,
       csrfToken: req.csrfToken(),
     });
   })
 );
 
 // Edit existing Product route (NEEDS CHECK)
-router.put(
+router.post(
   "/:id(\\d+)",
   productValidators,
   requireAuth,
   csrfProtection,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
-    const productToUpdate = await db.Product.findByPk(productId);
+    const productToUpdate = await Product.findByPk(productId);
     // , {
     //     include: {
     //       model: db.Review,
@@ -118,13 +119,12 @@ router.put(
     // });
 
     const { title, imageUrl, description, ownerId } = req.body;
-
     let product = { title, imageUrl, description, ownerId };
 
     const validatorErrors = validationResult(req);
     if (validatorErrors.isEmpty()) {
       await productToUpdate.update(product);
-      res.redirect(`/products/${productId}`);
+      res.redirect(`/products`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       product = productToUpdate;

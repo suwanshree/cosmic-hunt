@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/product";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-function EditProductForm() {
+function EditProductForm({ setShowModal }) {
+  const history = useHistory();
   const dispatch = useDispatch();
-  const [title, setTitle] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [description, setDescription] = useState("");
+  const productId = useSelector((state) => state.productState.currentProductId);
+  const products = useSelector((state) => state.productState.products);
+  const product = products[productId];
+  const [title, setTitle] = useState(product.title);
+  const [imageUrl, setImageUrl] = useState(product.imageUrl);
+  const [description, setDescription] = useState(product.description);
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(
-      sessionActions.writeProduct({ title, imageUrl, description })
-    ).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-    });
-    // Close modal on submit before return here or redirect in backend
+    dispatch(
+      sessionActions.updateProduct({ productId, title, imageUrl, description })
+    )
+      .then(() => setShowModal(false))
+      .then(() => history.push(`/products`))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
   };
 
   return (
