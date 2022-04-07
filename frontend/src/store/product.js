@@ -74,8 +74,7 @@ export const updateProduct = (payload) => async (dispatch) => {
 };
 
 export const removeProduct = (payload) => async (dispatch) => {
-  console.log("PAYLOAD------------------------->", payload);
-  const response = await csrfFetch(`/products/${payload.productId}`, {
+  const response = await csrfFetch(`/products/delete/${payload.id}`, {
     method: "DELETE",
   });
   dispatch(deleteProduct(payload));

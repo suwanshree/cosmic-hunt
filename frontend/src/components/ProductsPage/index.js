@@ -18,7 +18,7 @@ const ProductList = () => {
 
   const keys = Object.keys(products);
   return (
-    <ul className="productsContainer">
+    <ul className="productsContainer" key={products.id}>
       {keys.map((key) => (
         <li
           className="productContainer"

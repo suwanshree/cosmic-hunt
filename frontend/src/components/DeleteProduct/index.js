@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import removeProduct from "../../store/product";
+import { removeProduct } from "../../store/product";
 import { useHistory } from "react-router-dom";
 
 function DeleteProduct() {
