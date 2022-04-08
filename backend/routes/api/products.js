@@ -123,7 +123,7 @@ router.post(
     const validatorErrors = validationResult(req);
     if (validatorErrors.isEmpty()) {
       await productToUpdate.update(product);
-      res.redirect(`/products`);
+      res.redirect(`/api/products`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       product = productToUpdate;

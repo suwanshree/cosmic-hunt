@@ -64,7 +64,8 @@ a:hover {
 .logoutButton,
 .demoButton,
 .editProductButton,
-.deleteProductButton {
+.deleteProductButton,
+.confirmButton {
     border-radius: 10px;
     margin-bottom: 30px;
     margin-top: 10px;
@@ -80,7 +81,8 @@ a:hover {
 }
 
 .editProductButton,
-.deleteProductButton {
+.deleteProductButton,
+.confirmButton {
     border-radius: 10px;
     margin-bottom: 30px;
     margin-top: 10px;
@@ -129,7 +131,8 @@ a:hover {
     cursor: pointer;
 }
 
-.deleteProductButton:hover {
+.deleteProductButton:hover,
+.confirmButton:hover {
     color: white;
     background-color: rgb(188, 20, 20);
     border-radius: 10px;
@@ -141,11 +144,11 @@ a:hover {
     background-color: rgb(0, 0, 0);
 }
 
-.form {
+.form,
+.deleteModal {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: rgb(219, 219, 219);
     border-radius: 10px;
     padding: 10px;
     background-color: rgb(80, 148, 98);
