@@ -11,6 +11,8 @@ const productValidators = [
   check("title")
     .exists({ checkFalsy: true })
     .withMessage("Please provide a Title")
+    .isLength({ min: 4 })
+    .withMessage("Please provide a Title with at least 4 characters")
     .isLength({ max: 255 })
     .withMessage("Title can not be longer than 255 characters"),
   check("imageUrl")
@@ -20,7 +22,9 @@ const productValidators = [
     .withMessage("Image link needs to be fewer than 255 characters"),
   check("description")
     .exists({ checkFalsy: true })
-    .withMessage("Please provide description of Product"),
+    .withMessage("Please provide description of Product")
+    .isLength({ min: 10 })
+    .withMessage("Title can not be shorter than 10 characters"),
   handleValidationErrors,
 ];
 
