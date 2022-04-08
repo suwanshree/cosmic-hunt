@@ -9,6 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       ownerId: {
+        references: { model: "Users" },
         allowNull: false,
         type: Sequelize.INTEGER,
       },

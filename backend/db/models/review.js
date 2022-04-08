@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       references: { model: "Products" },
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     review: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -22,10 +26,11 @@ module.exports = (sequelize, DataTypes) => {
     Review.belongsTo(models.Product, { foreignKey: "productId" });
   };
 
-  Review.writeReview = async function ({ userId, productId, review }) {
+  Review.writeReview = async function ({ userId, productId, title, review }) {
     const newReview = await Review.create({
       userId,
       productId,
+      title,
       review,
     });
     return newReview;

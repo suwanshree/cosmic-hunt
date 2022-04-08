@@ -1,5 +1,5 @@
 const express = require("express");
-const { Product } = require("../../db/models");
+const { Product, Review, User } = require("../../db/models");
 const { csrfProtection, asyncHandler } = require("../../utils/async");
 const { validationResult, check } = require("express-validator");
 const { requireAuth } = require("../../utils/auth");
@@ -58,21 +58,20 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
-    const product = await Product.findByPk(productId);
-    // , {
-    //     include: [
-    //       {
-    //         model: db.Review,
-    //       },
-    //       { model: db.User },
-    //     ],
-    // });
-    // let activeUser;
-    // if (req.session.auth.userId) {
-    //   activeUser = req.session.auth.userId;
-    // } else {
-    //   activeUser = null;
-    // }
+    const product = await Product.findByPk(productId, {
+      include: [
+        {
+          model: Review,
+        },
+        { model: User },
+      ],
+    });
+    let activeUser;
+    if (req.session.auth.userId) {
+      activeUser = req.session.auth.userId;
+    } else {
+      activeUser = null;
+    }
     return res.json({
       product,
       csrfToken: req.csrfToken(),
@@ -111,15 +110,12 @@ router.post(
   csrfProtection,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
-    const productToUpdate = await Product.findByPk(productId);
-    // , {
-    //     include: {
-    //       model: db.Review,
-    //       include: [
-    //         { model: db.User },
-    //       ],
-    //     },
-    // });
+    const productToUpdate = await Product.findByPk(productId, {
+      include: {
+        model: Review,
+        include: [{ model: User }],
+      },
+    });
 
     const { title, imageUrl, description, ownerId } = req.body;
     let product = { title, imageUrl, description, ownerId };
