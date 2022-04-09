@@ -1,18 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeProduct } from "../../store/product";
+import { removeReview, updateCurrentReviewId } from "../../store/review";
 import { useHistory } from "react-router-dom";
 
 function ConfirmDelete({ setShowModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const productId = useSelector((state) => state.productState.currentProductId);
-  const products = useSelector((state) => state.productState.products);
-  const product = products[productId];
+  const reviews = useSelector((state) => state.reviewState.reviews);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(removeProduct(product));
+  const handleSubmit = (id) => {
+    id.preventDefault();
+    const review = reviews[id];
+    console.log("REVIEW TO DELETE", review);
+    dispatch(updateCurrentReviewId(id));
+    dispatch(removeReview(review));
     setShowModal(false);
     history.push("/products");
   };
@@ -24,7 +25,7 @@ function ConfirmDelete({ setShowModal }) {
 
   return (
     <div className="deleteModal">
-      <button className="confirmButton" onClick={handleSubmit}>
+      <button className="confirmButton" onClick={handleSubmit()}>
         Confirm Delete
       </button>
       <button className="editProductButton" onClick={handleCancel}>

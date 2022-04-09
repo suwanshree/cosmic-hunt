@@ -23,6 +23,17 @@ const reviewValidators = [
   handleValidationErrors,
 ];
 
+// GET all reviews
+router.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const allReviews = await Review.findAll({
+      order: [["createdAt", "DESC"]],
+    });
+    return res.json(allReviews);
+  })
+);
+
 // POST new review route
 router.post(
   "/new",

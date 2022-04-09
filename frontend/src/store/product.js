@@ -128,7 +128,9 @@ const productReducer = (state = initialState, action) => {
       };
     case DELETE_PRODUCT:
       newState = { ...state };
-      newState.payload = null;
+      newState.products = state.products.forEach((product) => {
+        if (product !== action.payload) newState.products.push(product);
+      });
       return newState;
     default:
       return state;

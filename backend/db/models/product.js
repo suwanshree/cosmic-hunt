@@ -26,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     Product.belongsTo(models.User, { foreignKey: "ownerId" });
     Product.hasMany(models.Review, {
       foreignKey: "productId",
+      onDelete: "cascade",
       hooks: true,
-      onDelete: "CASCADE",
     });
   };
 

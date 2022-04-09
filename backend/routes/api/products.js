@@ -42,12 +42,11 @@ router.get(
 // Delete particular product route
 router.delete(
   "/delete/:id(\\d+)",
-  requireAuth,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
     const product = await Product.findByPk(productId);
-    await product.destroy({ where: { id: productId } });
-    return res.json({ id: productId });
+    await product.destroy();
+    return res.json({});
   })
 );
 
