@@ -77,7 +77,7 @@ router.post("/:id(\\d+)", async (req, res) => {
 });
 
 // DELETE existing review route
-router.get(
+router.delete(
   "/delete/:id(\\d+)",
   requireAuth,
   csrfProtection,
