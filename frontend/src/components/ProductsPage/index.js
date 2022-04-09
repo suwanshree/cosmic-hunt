@@ -15,7 +15,6 @@ const ProductList = () => {
   const handleOnClick = (id) => {
     dispatch(updateCurrentProductId(id));
   };
-
   const keys = Object.keys(products);
   return (
     <ul className="productsContainer" key={products.id}>

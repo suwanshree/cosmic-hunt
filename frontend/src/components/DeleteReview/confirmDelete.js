@@ -1,21 +1,17 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { removeReview, updateCurrentReviewId } from "../../store/review";
-import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { removeReview } from "../../store/review";
+// import { useHistory } from "react-router-dom";
 
-function ConfirmDelete({ setShowModal }) {
+function ConfirmDelete({ setShowModal, review }) {
   const dispatch = useDispatch();
-  const history = useHistory();
-  const reviews = useSelector((state) => state.reviewState.reviews);
-
-  const handleSubmit = (id) => {
-    id.preventDefault();
-    const review = reviews[id];
-    console.log("REVIEW TO DELETE", review);
-    dispatch(updateCurrentReviewId(id));
+  // const history = useHistory();
+  console.log("REVIEW IN DELETE REVIEW", review);
+  const handleSubmit = (e) => {
+    e.preventDefault();
     dispatch(removeReview(review));
     setShowModal(false);
-    history.push("/products");
+    // history.push("/products");
   };
 
   const handleCancel = (e) => {

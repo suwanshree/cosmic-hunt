@@ -22,8 +22,8 @@ const SingleProduct = () => {
 
   const thisReviews = [];
 
-  if (reviews) {
-    reviews.forEach((review) => {
+  if (reviews.length > 0) {
+    reviews?.forEach((review) => {
       if (review) {
         if (productId === review.productId) {
           thisReviews.push(review);
@@ -48,10 +48,11 @@ const SingleProduct = () => {
   if (sessionUser && thisReviews) {
     thisReviews.forEach((review) => {
       if (sessionUser.id === review.userId) {
+        console.log("REVIEW IN SINGLE PRODCUT", review);
         reviewLinks = (
           <div id="buttonsDiv">
-            <EditReviewFormModal user={sessionUser} />
-            <DeleteReview user={sessionUser} />
+            <EditReviewFormModal user={sessionUser} review={review} />
+            <DeleteReview user={sessionUser} review={review} />
           </div>
         );
       }

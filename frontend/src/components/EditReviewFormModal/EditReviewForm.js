@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/review";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 function EditReviewForm({ setShowModal }) {
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
   const reviewId = useSelector((state) => state.reviewState.currentReviewId);
   const reviews = useSelector((state) => state.reviewState.reviews);
@@ -18,7 +18,7 @@ function EditReviewForm({ setShowModal }) {
     setErrors([]);
     dispatch(sessionActions.updateReview({ reviewId, title, review }))
       .then(() => setShowModal(false))
-      .then(() => history.push(`/products`))
+      // .then(() => history.push(`/products`))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
