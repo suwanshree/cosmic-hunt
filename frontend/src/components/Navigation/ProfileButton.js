@@ -31,7 +31,7 @@ function ProfileButton({ user }) {
   return (
     <div className="profileContainer">
       <button className="profileButton" onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+        <i class="fa-solid fa-user-astronaut"></i>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
@@ -39,7 +39,7 @@ function ProfileButton({ user }) {
           <li>📧 {user.email}</li>
           <li>
             <button className="logoutButton" onClick={logout}>
-              Log Out
+              <i class="fa-solid fa-right-from-bracket"></i>
             </button>
           </li>
         </ul>

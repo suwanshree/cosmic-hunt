@@ -67,7 +67,7 @@ const SingleProduct = () => {
             </div>
             {newReviewLink}
             <h2>Discussion:</h2>
-            <ul className="reviewsContainer">
+            <ul className="reviewsContainer" key={thisReviews}>
               {keys.map((key) => (
                 <li className="reviewContainer" key={thisReviews[key].id}>
                   {sessionUser && sessionUser.id === thisReviews[key].userId && (

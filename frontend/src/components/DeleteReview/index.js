@@ -11,7 +11,7 @@ function DeleteReview({ review }) {
         className="deleteProductButton"
         onClick={() => setShowModal(true)}
       >
-        Delete
+        <i class="fa-solid fa-trash-can"></i>
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

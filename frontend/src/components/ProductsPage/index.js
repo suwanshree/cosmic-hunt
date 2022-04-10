@@ -18,20 +18,23 @@ const ProductList = () => {
   const keys = Object.keys(products);
   return (
     <ul className="productsContainer" key={products.id}>
-      {keys.map((key) => (
-        <li
-          className="productContainer"
-          key={products[key].id}
-          onClick={() => handleOnClick(products[key].id)}
-        >
-          <NavLink to={`/api/products/${products[key].id}`}>
-            {products[key].title}
-          </NavLink>
-          <NavLink to={`/api/products/${products[key].id}`}>
-            {<img src={products[key].imageUrl} alt={products[key].title} />}
-          </NavLink>
-        </li>
-      ))}
+      {keys
+        .slice(0)
+        .reverse()
+        .map((key) => (
+          <li
+            className="productContainer"
+            key={products[key].id}
+            onClick={() => handleOnClick(products[key].id)}
+          >
+            <NavLink to={`/api/products/${products[key].id}`}>
+              {products[key].title}
+            </NavLink>
+            <NavLink to={`/api/products/${products[key].id}`}>
+              {<img src={products[key].imageUrl} alt={products[key].title} />}
+            </NavLink>
+          </li>
+        ))}
     </ul>
   );
 };

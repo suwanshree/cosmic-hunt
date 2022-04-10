@@ -15,7 +15,6 @@ function EditReviewForm({ setShowModal, reviewObject }) {
     dispatch(sessionActions.updateReview({ id, title, review }))
       .then(() => setShowModal(false))
       .then(dispatch(fetchReviews()))
-      .then(console.log("THIS SHOULD BE LLAAAAAST"))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);

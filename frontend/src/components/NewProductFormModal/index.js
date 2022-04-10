@@ -8,7 +8,7 @@ function NewProductFormModal() {
   return (
     <>
       <button className="signupButton" onClick={() => setShowModal(true)}>
-        Host
+        <i class="fa-solid fa-plus"></i>
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

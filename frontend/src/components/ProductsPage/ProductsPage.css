@@ -1,16 +1,14 @@
+
 .productsContainer {
     position: absolute;
     display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
+    flex-flow: row wrap;
+    align-content: center;
     margin-top: 60px;
-    padding-left: 0;
+    padding-left: 5px;
     text-decoration: none;
     list-style-type: none;
     z-index: -1;
-    width: 100%;
-    height: auto;
 }
 
 .productContainer {
@@ -18,16 +16,18 @@
     padding: 5px;
     margin: 5px;
     flex-direction: column;
-    width: 750px;
+    width: 350px;
     height: auto;
     background-color: rgba(58, 126, 18, 0.4);
     border-radius: 10px;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .productContainer img {
-    width: 700px;
-    height: 450px;
+    width: 300px;
+    height: 250px;
     border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .productContainer a {

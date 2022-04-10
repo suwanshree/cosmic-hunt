@@ -14,7 +14,8 @@ function ConfirmDelete({ setShowModal }) {
     e.preventDefault();
     dispatch(removeProduct(product));
     setShowModal(false);
-    history.push("/products");
+    history.push("/");
+    window.location.reload();
   };
 
   const handleCancel = (e) => {

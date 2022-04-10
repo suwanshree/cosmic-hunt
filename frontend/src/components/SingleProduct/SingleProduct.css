@@ -12,6 +12,7 @@
     height: auto;
     background-color: rgba(58, 126, 18, 0.4);
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .reviewsContainer {
@@ -27,6 +28,7 @@
     margin-top: 10px;
     background-color: rgba(58, 126, 18, 0.4);
     border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
 .singleProductContainer h1,
@@ -56,6 +58,7 @@
     height: 550px;
     border-radius: 10px;
     margin-bottom: 15px;
+    box-shadow: rgb(13, 55, 7) 20px 20px 30px -10px;
 }
 
 #buttonsDiv {

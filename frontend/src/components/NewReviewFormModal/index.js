@@ -8,7 +8,7 @@ function NewReviewFormModal() {
   return (
     <>
       <button className="signupButton" onClick={() => setShowModal(true)}>
-        Write Review
+        ✎ Write Review
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
