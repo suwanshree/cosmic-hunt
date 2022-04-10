@@ -24,6 +24,11 @@ module.exports = (sequelize, DataTypes) => {
 
   Product.associate = function (models) {
     Product.belongsTo(models.User, { foreignKey: "ownerId" });
+    Product.hasMany(models.Review, {
+      foreignKey: "productId",
+      onDelete: "cascade",
+      hooks: true,
+    });
   };
 
   Product.writeProduct = async function ({

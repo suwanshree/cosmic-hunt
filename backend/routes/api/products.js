@@ -1,5 +1,5 @@
 const express = require("express");
-const { Product } = require("../../db/models");
+const { Product, Review, User } = require("../../db/models");
 const { csrfProtection, asyncHandler } = require("../../utils/async");
 const { validationResult, check } = require("express-validator");
 const { requireAuth } = require("../../utils/auth");
@@ -11,6 +11,8 @@ const productValidators = [
   check("title")
     .exists({ checkFalsy: true })
     .withMessage("Please provide a Title")
+    .isLength({ min: 4 })
+    .withMessage("Please provide a Title with at least 4 characters")
     .isLength({ max: 255 })
     .withMessage("Title can not be longer than 255 characters"),
   check("imageUrl")
@@ -20,7 +22,9 @@ const productValidators = [
     .withMessage("Image link needs to be fewer than 255 characters"),
   check("description")
     .exists({ checkFalsy: true })
-    .withMessage("Please provide description of Product"),
+    .withMessage("Please provide description of Product")
+    .isLength({ min: 10 })
+    .withMessage("Title can not be shorter than 10 characters"),
   handleValidationErrors,
 ];
 
@@ -38,12 +42,11 @@ router.get(
 // Delete particular product route
 router.delete(
   "/delete/:id(\\d+)",
-  requireAuth,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
     const product = await Product.findByPk(productId);
-    await product.destroy({ where: { id: productId } });
-    return res.json({ id: productId });
+    await product.destroy();
+    return res.json({});
   })
 );
 
@@ -54,21 +57,20 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
-    const product = await Product.findByPk(productId);
-    // , {
-    //     include: [
-    //       {
-    //         model: db.Review,
-    //       },
-    //       { model: db.User },
-    //     ],
-    // });
-    // let activeUser;
-    // if (req.session.auth.userId) {
-    //   activeUser = req.session.auth.userId;
-    // } else {
-    //   activeUser = null;
-    // }
+    const product = await Product.findByPk(productId, {
+      include: [
+        {
+          model: Review,
+        },
+        { model: User },
+      ],
+    });
+    let activeUser;
+    if (req.session.auth.userId) {
+      activeUser = req.session.auth.userId;
+    } else {
+      activeUser = null;
+    }
     return res.json({
       product,
       csrfToken: req.csrfToken(),
@@ -107,15 +109,12 @@ router.post(
   csrfProtection,
   asyncHandler(async (req, res) => {
     const productId = parseInt(req.params.id, 10);
-    const productToUpdate = await Product.findByPk(productId);
-    // , {
-    //     include: {
-    //       model: db.Review,
-    //       include: [
-    //         { model: db.User },
-    //       ],
-    //     },
-    // });
+    const productToUpdate = await Product.findByPk(productId, {
+      include: {
+        model: Review,
+        include: [{ model: User }],
+      },
+    });
 
     const { title, imageUrl, description, ownerId } = req.body;
     let product = { title, imageUrl, description, ownerId };

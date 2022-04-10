@@ -16,10 +16,19 @@ function ConfirmDelete({ setShowModal }) {
     setShowModal(false);
     history.push("/products");
   };
+
+  const handleCancel = (e) => {
+    e.preventDefault();
+    setShowModal(false);
+  };
+
   return (
     <div className="deleteModal">
       <button className="confirmButton" onClick={handleSubmit}>
         Confirm Delete
+      </button>
+      <button className="editProductButton" onClick={handleCancel}>
+        Cancel
       </button>
     </div>
   );
