@@ -58,7 +58,7 @@ export const writeReview = (payload) => async (dispatch) => {
 };
 
 export const updateReview = (payload) => async (dispatch) => {
-  const response = await csrfFetch(`/api/reviews/${payload.reviewId}`, {
+  const response = await csrfFetch(`/api/reviews/${payload.id}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -74,7 +74,7 @@ export const updateReview = (payload) => async (dispatch) => {
 };
 
 export const removeReview = (payload) => async (dispatch) => {
-  const response = await csrfFetch(`/api/reviews/delete/${payload.id}`, {
+  const response = await csrfFetch(`/api/reviews/delete/${payload}`, {
     method: "DELETE",
   });
   dispatch(deleteReview(payload));
@@ -106,27 +106,32 @@ const reviewReducer = (state = initialState, action) => {
         reviews: loadedReviews,
       };
     case ADD_REVIEW:
-      reviews = { ...state.reviews };
-      reviews[action.payload.id] = action.payload;
-      return {
-        ...state,
-        reviews,
-      };
+      newState = { ...state };
+      newState.reviews = [];
+      newState.reviews.push(action.payload);
+      state.reviews.forEach((review) => {
+        newState.reviews.push(review);
+      });
+      return newState;
     case UPDATE_CURRENT_REVIEW:
       return {
         ...state,
         currentReviewId: action.payload,
       };
     case EDIT_REVIEW:
-      reviews = { ...state.reviews };
-      reviews[action.payload.id] = action.payload;
-      return {
-        ...state,
-        reviews,
-      };
+      newState = { ...state };
+      newState.reviews = [];
+      newState.reviews.push(action.payload);
+      state.reviews.forEach((review) => {
+        newState.reviews.push(review);
+      });
+      return newState;
     case DELETE_REVIEW:
       newState = { ...state };
-      newState.payload = null;
+      newState.reviews = [];
+      state.reviews.forEach((review) => {
+        if (review.id !== action.payload) newState.reviews.push(review);
+      });
       return newState;
     default:
       return state;

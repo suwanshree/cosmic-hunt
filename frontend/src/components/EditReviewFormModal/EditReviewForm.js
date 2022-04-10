@@ -1,24 +1,21 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/review";
-import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchReviews } from "../../store/review";
 
-function EditReviewForm({ setShowModal }) {
-  // const history = useHistory();
+function EditReviewForm({ setShowModal, reviewObject }) {
   const dispatch = useDispatch();
-  const reviewId = useSelector((state) => state.reviewState.currentReviewId);
-  const reviews = useSelector((state) => state.reviewState.reviews);
-  const singleReview = reviews[reviewId];
-  const [title, setTitle] = useState(singleReview.title);
-  const [review, setReview] = useState(singleReview.review);
+  const id = reviewObject.id;
+  const [title, setTitle] = useState(reviewObject.title);
+  const [review, setReview] = useState(reviewObject.review);
   const [errors, setErrors] = useState([]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    dispatch(sessionActions.updateReview({ reviewId, title, review }))
+    dispatch(sessionActions.updateReview({ id, title, review }))
       .then(() => setShowModal(false))
-      // .then(() => history.push(`/products`))
+      .then(dispatch(fetchReviews()))
+      .then(console.log("THIS SHOULD BE LLAAAAAST"))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/review";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 
 function NewReviewForm({ setShowModal }) {
   const dispatch = useDispatch();
-  const history = useHistory();
   const [title, setTitle] = useState("");
   const [review, setReview] = useState("");
   const [errors, setErrors] = useState([]);
@@ -16,7 +14,6 @@ function NewReviewForm({ setShowModal }) {
     setErrors([]);
     dispatch(sessionActions.writeReview({ title, review, productId }))
       .then(() => setShowModal(false))
-      .then(() => history.push("/products"))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
