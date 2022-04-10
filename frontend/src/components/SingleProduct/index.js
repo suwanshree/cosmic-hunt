@@ -22,7 +22,7 @@ const SingleProduct = () => {
 
   const thisReviews = [];
 
-  if (reviews.length > 0) {
+  if (reviews !== undefined && reviews.length > 0) {
     reviews?.forEach((review) => {
       if (review) {
         if (productId === review.productId) {
@@ -42,21 +42,6 @@ const SingleProduct = () => {
         </div>
       );
     }
-  }
-
-  let reviewLinks;
-  if (sessionUser && thisReviews) {
-    thisReviews.forEach((review) => {
-      if (sessionUser.id === review.userId) {
-        console.log("REVIEW IN SINGLE PRODCUT", review);
-        reviewLinks = (
-          <div id="buttonsDiv">
-            <EditReviewFormModal user={sessionUser} review={review} />
-            <DeleteReview user={sessionUser} review={review} />
-          </div>
-        );
-      }
-    });
   }
 
   let newReviewLink;
@@ -85,7 +70,18 @@ const SingleProduct = () => {
             <ul className="reviewsContainer">
               {keys.map((key) => (
                 <li className="reviewContainer" key={thisReviews[key].id}>
-                  {reviewLinks}
+                  {sessionUser && sessionUser.id === thisReviews[key].userId && (
+                    <div id="buttonsDiv">
+                      <EditReviewFormModal
+                        user={sessionUser}
+                        reviewObject={thisReviews[key]}
+                      />
+                      <DeleteReview
+                        user={sessionUser}
+                        review={thisReviews[key].id}
+                      />
+                    </div>
+                  )}
                   <h2>{thisReviews[key].title}</h2>
                   {thisReviews[key].review}
                 </li>

@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import EditReviewForm from "./EditReviewForm";
 
-function EditReviewFormModal() {
+function EditReviewFormModal({ reviewObject }) {
   const [showModal, setShowModal] = useState(false);
-
   return (
     <>
       <button className="editProductButton" onClick={() => setShowModal(true)}>
@@ -12,7 +11,10 @@ function EditReviewFormModal() {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditReviewForm setShowModal={setShowModal} />
+          <EditReviewForm
+            setShowModal={setShowModal}
+            reviewObject={reviewObject}
+          />
         </Modal>
       )}
     </>
