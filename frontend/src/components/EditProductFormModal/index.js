@@ -8,7 +8,7 @@ function EditProductFormModal() {
   return (
     <>
       <button className="editProductButton" onClick={() => setShowModal(true)}>
-        <i class="fa-solid fa-pen-to-square"></i>
+        <i className="fa-solid fa-pen-to-square"></i>
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

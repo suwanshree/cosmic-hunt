@@ -35,10 +35,10 @@ function Navigation({ isLoaded }) {
         <li className="navItems">
           <div>
             <NavLink exact to="/">
-              <i class="fa-solid fa-house-chimney"></i>
+              <i className="fa-solid fa-house-chimney"></i>
             </NavLink>
             <NavLink exact to="/products">
-              🚀Products
+              <i className="fa-solid fa-rocket"></i> Products
             </NavLink>
           </div>
           <div>{isLoaded && sessionLinks}</div>

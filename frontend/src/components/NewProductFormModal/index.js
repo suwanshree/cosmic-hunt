@@ -8,7 +8,7 @@ function NewProductFormModal() {
   return (
     <>
       <button className="signupButton" onClick={() => setShowModal(true)}>
-        <i class="fa-solid fa-plus"></i>
+        <i className="fa-solid fa-plus"></i> Product
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

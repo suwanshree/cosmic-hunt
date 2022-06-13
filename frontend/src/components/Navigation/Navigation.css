@@ -1,61 +1,122 @@
 * {
-    margin: 0;
-    font-size: 14pt;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0;
+  font-size: 14pt;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(84, 134, 58);
+  background: rgb(174, 213, 153);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(84, 134, 58);
+  border-radius: 8px;
+  margin: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(56, 88, 38);
+}
+
+textarea {
+  resize: none;
+}
+
+button,
+a {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: 0.5s;
+}
+
+input,
+textarea,
+select {
+  border-style: solid;
+  border: none;
+  border-style: none;
+  -webkit-appearance: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border-style: solid;
+  border: none;
+  border-style: none;
+  -webkit-appearance: none;
 }
 
 .nav {
-    background-color: rgba(84, 134, 58, 0.3);
-    padding-left: 10px;
-    padding-right: 10px;
-    border-bottom: 2px solid rgb(42, 74, 23);
+  background-color: rgba(84, 134, 58, 0.3);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 2px solid rgb(42, 74, 23);
 }
 
 .navContainer {
-    margin-top: 0;
-    width: 100%;
-    position: fixed;
+  margin-top: 0;
+  width: 100%;
+  position: fixed;
 }
 
 .navItems {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 ul.profile-dropdown {
-    padding-inline-start: 0px;
+  padding-inline-start: 0px;
 }
 
 .loggedInNav {
-    display:flex;
+  display: flex;
 }
 
 a {
-    font-size: 18pt;
-    color: rgb(0, 0, 0);
-    margin: 5px;
-    padding: 5px;
-    background-color: rgb(84, 134, 58);
-    text-decoration: none;
-    list-style-type: none;
-    font-style: bold;
-    border-radius: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18pt;
+  color: rgb(0, 0, 0);
+  margin: 5px;
+  padding: 5px;
+  background-color: rgb(84, 134, 58);
+  text-decoration: none;
+  list-style-type: none;
+  font-style: bold;
+  border-radius: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 #button {
-    border-radius: 10px;
-    margin-bottom: 30px;
-    margin-top: 10px;
-    background-color: rgb(108, 202, 121);
+  border-radius: 10px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  background-color: rgb(108, 202, 121);
 }
 
 #button:hover,
 a:hover {
-    background-color: rgb(235, 235, 235);
-    border-radius: 10px;
-    cursor: pointer;
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .loginButton,
@@ -66,53 +127,55 @@ a:hover {
 .editProductButton,
 .deleteProductButton,
 .confirmButton {
-    border-radius: 10px;
-    margin-bottom: 30px;
-    margin-top: 10px;
-    font-size: 16pt;
-    color: black;
-    background-color: rgb(84, 134, 58);
-    margin: 5px;
-    padding: 5px;
-    text-decoration: none;
-    list-style-type: none;
-    font-style: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  font-size: 18pt;
+  color: black;
+  background-color: rgb(84, 134, 58);
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+  list-style-type: none;
+  font-style: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: 1s;
 }
 
 .editProductButton,
 .deleteProductButton,
 .confirmButton {
-    border-radius: 10px;
-    margin-bottom: 30px;
-    margin-top: 10px;
-    font-size: 16pt;
-    color: black;
-    background-color: rgb(225, 225, 225);
-    margin: 5px;
-    padding: 5px;
-    text-decoration: none;
-    list-style-type: none;
-    font-style: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  font-size: 16pt;
+  color: black;
+  background-color: rgb(225, 225, 225);
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+  list-style-type: none;
+  font-style: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .profileContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .profile-dropdown {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  list-style-type: none;
+  transition: 0.5s;
 }
 
 .profile-dropdown li {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .loginButton:hover,
@@ -120,148 +183,147 @@ a:hover {
 .signupButton:hover,
 .logoutButton:hover,
 .demoButton:hover {
-    background-color: rgb(235, 235, 235);
-    border-radius: 10px;
-    cursor: pointer;
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .editProductButton:hover {
-    background-color: rgb(84, 134, 58);
-    border-radius: 10px;
-    cursor: pointer;
+  background-color: rgb(84, 134, 58);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .deleteProductButton:hover,
 .confirmButton:hover {
-    color: white;
-    background-color: rgb(188, 20, 20);
-    border-radius: 10px;
-    cursor: pointer;
+  color: white;
+  background-color: rgb(188, 20, 20);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 #button:active {
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
 }
 
 .form,
 .deleteModal {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: rgb(80, 148, 98);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(80, 148, 98);
 }
 
 .formContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 90%;
 }
 
 .form * {
-    padding: 10px;
+  padding: 10px;
 }
 
 .productFormContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 90%;
 }
 
 .productForm * {
-    padding: 10px;
+  padding: 10px;
 }
 
 .productForm {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: rgb(219, 219, 219);
-    border-radius: 10px;
-    padding: 10px;
-    background-color: rgb(80, 148, 98);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(219, 219, 219);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(80, 148, 98);
 }
 
 .descriptionContainer {
-    display: flex;
-    padding-left: 0px;
-
+  display: flex;
+  padding-left: 0px;
 }
 
 #productForm1 {
-    margin-left: 80px;
-    border-radius: 10px;
-    background-color: rgb(174, 248, 180);
-    width: 700px;
+  margin-left: 80px;
+  border-radius: 10px;
+  background-color: rgb(174, 248, 180);
+  width: 700px;
 }
 
 #productForm2 {
-    margin-left: 30px;
-    border-radius: 10px;
-    background-color: rgb(174, 248, 180);
-    width: 700px;
+  margin-left: 30px;
+  border-radius: 10px;
+  background-color: rgb(174, 248, 180);
+  width: 700px;
 }
 
 #productForm3 {
-    margin-left: 15px;
-    border-radius: 10px;
-    background-color: rgb(174, 248, 180);
-    height: 200px;
-    width: 700px;
+  margin-left: 15px;
+  border-radius: 10px;
+  background-color: rgb(174, 248, 180);
+  height: 200px;
+  width: 700px;
 }
 
 #formA {
-    margin-left: 10px;
-    border-radius: 10px;
-    background-color: rgb(174, 248, 180);
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: rgb(174, 248, 180);
 }
 
 #formB {
-    margin-left: 85px;
-    border-radius: 10px;
-    background-color: rgb(174, 248, 180);
+  margin-left: 85px;
+  border-radius: 10px;
+  background-color: rgb(174, 248, 180);
 }
 
 #form1 {
-    margin-left: 112px;
-    border-radius: 10px;
-    background-color: rgb(174, 248, 180);
+  margin-left: 112px;
+  border-radius: 10px;
+  background-color: rgb(174, 248, 180);
 }
 
 #form2 {
-    margin-left: 77px;
-    border-radius: 10px;
-    background-color: rgb(174, 248, 180);
+  margin-left: 77px;
+  border-radius: 10px;
+  background-color: rgb(174, 248, 180);
 }
 
 #form3 {
-    margin-left: 80px;
-    border-radius: 10px;
-    background-color: rgb(174, 248, 180);
+  margin-left: 80px;
+  border-radius: 10px;
+  background-color: rgb(174, 248, 180);
 }
 
 #form4 {
-    margin-left: 10px;
-    border-radius: 10px;
-    background-color: rgb(174, 248, 180);
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: rgb(174, 248, 180);
 }
 
 .form ul {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .productForm ul {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 h1 {
-    font-size: 20pt;
-    font-style: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20pt;
+  font-style: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 #formA:hover,
@@ -273,7 +335,7 @@ h1 {
 #productForm1:hover,
 #productForm2:hover,
 #productForm3:hover {
-    background-color: rgb(210, 249, 213);
+  background-color: rgb(210, 249, 213);
 }
 
 #formA:focus,
@@ -285,5 +347,5 @@ h1 {
 #productForm1:focus,
 #productForm2:focus,
 #productForm3:focus {
-    background-color: rgb(210, 249, 213);
+  background-color: rgb(210, 249, 213);
 }
