@@ -45,7 +45,15 @@ const SingleProduct = () => {
   }
 
   let newReviewLink;
-  if (sessionUser) {
+  let singleUserReview = true;
+
+  if (sessionUser && thisReviews) {
+    for (let i = 0; i < thisReviews.length; i++) {
+      if (thisReviews[i].userId === sessionUser.id) singleUserReview = false;
+    }
+  }
+
+  if (sessionUser && sessionUser.id !== product.ownerId && singleUserReview === true) {
     newReviewLink = (
       <div className="buttonsDiv">
         <NewReviewFormModal user={sessionUser} />
@@ -55,7 +63,7 @@ const SingleProduct = () => {
 
   const keys = Object.keys(thisReviews);
   return (
-    <>
+    <div className="singleProductPage">
       {product ? (
         <>
           <div className="singleProductContainer">
@@ -100,7 +108,7 @@ const SingleProduct = () => {
       ) : (
         "Loading..."
       )}
-    </>
+    </div>
   );
 };
 
