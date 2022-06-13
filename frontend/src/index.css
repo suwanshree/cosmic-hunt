@@ -1,1 +1,6 @@
 /* TODO Add site wide styles */
+
+.errors {
+  list-style-type: none;
+  color: rgb(191, 0, 0);
+}

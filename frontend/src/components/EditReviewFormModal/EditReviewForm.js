@@ -24,7 +24,7 @@ function EditReviewForm({ setShowModal, reviewObject }) {
   return (
     <div className="productFormContainer">
       <form className="productForm" onSubmit={handleSubmit}>
-        <ul>
+        <ul className="errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
