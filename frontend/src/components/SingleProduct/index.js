@@ -53,7 +53,7 @@ const SingleProduct = () => {
     }
   }
 
-  if (sessionUser && sessionUser.id !== product.ownerId && singleUserReview === true) {
+  if (sessionUser && sessionUser.id !== product?.ownerId && singleUserReview === true) {
     newReviewLink = (
       <div className="buttonsDiv">
         <NewReviewFormModal user={sessionUser} />
