@@ -32,7 +32,7 @@ This is a website where the lastest interstellar products and technologies can b
 
     -        CREATE USER <name> WITH CREATEDB PASSWORD <'password'>
 
-4.  Create a .enc file in the backend directory based on the .env.example found within the respective directory.
+4.  Create a .env file in the backend directory based on the .env.example found within the respective directory.
 
 5.  Enter your username and password information into your .env fiel along with your desired database name, a secured combination of characters for your JWT_SECRET, and your desired PORT (preferably 5000).
 
@@ -42,11 +42,11 @@ This is a website where the lastest interstellar products and technologies can b
 
 7.  Create Database, Migrate, and Seed models.
 
-    -       npm dotenv sequelize db:create
+    -       npx dotenv sequelize db:create
 
-    -       npm dotenv sequelize db:migrate
+    -       npx dotenv sequelize db:migrate
 
-    -       npm dotenv sequelize db:seed:all
+    -       npx dotenv sequelize db:seed:all
 
 8.  Start the services in the backend directory.
 

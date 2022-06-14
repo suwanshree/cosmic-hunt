@@ -19,7 +19,7 @@ const reviewValidators = [
     .exists({ checkFalsy: true })
     .withMessage("Please provide description of Product")
     .isLength({ min: 10 })
-    .withMessage("Title can not be shorter than 10 characters"),
+    .withMessage("Review can not be shorter than 10 characters"),
   handleValidationErrors,
 ];
 

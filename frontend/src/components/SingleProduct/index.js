@@ -45,7 +45,15 @@ const SingleProduct = () => {
   }
 
   let newReviewLink;
-  if (sessionUser) {
+  let singleUserReview = true;
+
+  if (sessionUser && thisReviews) {
+    for (let i = 0; i < thisReviews.length; i++) {
+      if (thisReviews[i].userId === sessionUser.id) singleUserReview = false;
+    }
+  }
+
+  if (sessionUser && sessionUser.id !== product.ownerId && singleUserReview === true) {
     newReviewLink = (
       <div className="buttonsDiv">
         <NewReviewFormModal user={sessionUser} />
@@ -55,14 +63,22 @@ const SingleProduct = () => {
 
   const keys = Object.keys(thisReviews);
   return (
-    <>
+    <div className="singleProductPage">
       {product ? (
         <>
           <div className="singleProductContainer">
             {sessionLinks}
             <div className="singleProduct">
               <h1>{product.title}</h1>
-              <img src={product.imageUrl} alt={product.title} />
+              <img
+                src={product.imageUrl}
+                alt={product.title}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src =
+                    "https://res.cloudinary.com/dn0ocfiva/image/upload/v1653045697/star-yelp/brokenimage_rtafkm.png";
+                }}
+              />
               <p>{product.description}</p>
             </div>
             {newReviewLink}
@@ -92,7 +108,7 @@ const SingleProduct = () => {
       ) : (
         "Loading..."
       )}
-    </>
+    </div>
   );
 };
 

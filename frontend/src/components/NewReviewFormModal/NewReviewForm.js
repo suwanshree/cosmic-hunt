@@ -23,7 +23,7 @@ function NewReviewForm({ setShowModal }) {
   return (
     <div className="productFormContainer">
       <form className="productForm" onSubmit={handleSubmit}>
-        <ul>
+        <ul className="errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
@@ -31,7 +31,7 @@ function NewReviewForm({ setShowModal }) {
         <label>
           Title
           <input
-            id="productForm1"
+            id="reviewForm1"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -41,7 +41,7 @@ function NewReviewForm({ setShowModal }) {
         <div className="descriptionContainer">
           <label htmlFor="descriptionarea">Review</label>
           <textarea
-            id="productForm3"
+            id="reviewForm2"
             name="descriptionarea"
             value={review}
             onChange={(e) => setReview(e.target.value)}
