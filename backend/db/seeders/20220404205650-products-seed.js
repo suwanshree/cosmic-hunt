@@ -26,7 +26,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 1,
+          ownerId: 3,
           title: "Warp Drive",
           imageUrl:
             "https://images.squarespace-cdn.com/content/v1/51965fafe4b0c4d402cd8a5b/1614994937449-F2GDPE96NMWU1ZHYH3JG/warp_ship.jpg",
@@ -55,7 +55,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 2,
+          ownerId: 3,
           title: "DataGrip",
           imageUrl:
             "https://static.wikia.nocookie.net/starwars/images/8/8b/Datagrip.png",
@@ -65,7 +65,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 1,
+          ownerId: 2,
           title: "Flash Charge",
           imageUrl:
             "https://lumiere-a.akamaihd.net/v1/images/flash-charge-main_819dc187.jpeg?region=164%2C0%2C953%2C536",
@@ -85,7 +85,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 2,
+          ownerId: 3,
           title: "Hovering Pram",
           imageUrl:
             "https://static.wikia.nocookie.net/starwars/images/2/24/TheChildPod-Fathead.png",
@@ -95,7 +95,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 1,
+          ownerId: 2,
           title: "Lightsaber Incinerator",
           imageUrl:
             "https://preview.redd.it/w28yr1awj6941.jpg?auto=webp&s=066258c4978107de81d33fbb592964eb28ecc548",
@@ -115,7 +115,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 1,
+          ownerId: 3,
           title: "Meson Taloscope",
           imageUrl:
             "https://images.squarespace-cdn.com/content/v1/50075c3b84aef6ab9ccf751e/1361940083582-65LEWOF9ONVHN2BAKXGD/IMG_0062.jpg?format=1000w",
@@ -125,7 +125,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 1,
+          ownerId: 2,
           title: "PVC-800",
           imageUrl:
             "https://static.wikia.nocookie.net/starwars/images/e/e2/PVC-800.png",
@@ -145,7 +145,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 1,
+          ownerId: 3,
           title: "Vocal Emulator",
           imageUrl:
             "https://lumiere-a.akamaihd.net/v1/images/databank_vocalemulator_01_169_2ba87603.jpeg?region=0%2C98%2C1560%2C780",
@@ -155,7 +155,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 1,
+          ownerId: 2,
           title: "Ultrawave Sight Enhancer",
           imageUrl: "https://cdn.nanalyze.com/uploads/2017/04/esight.jpg",
           description:
@@ -174,7 +174,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 1,
+          ownerId: 3,
           title: "Universal Translator",
           imageUrl:
             "https://static0.srcdn.com/wordpress/wp-content/uploads/2021/10/Star-Trek-Universal-translator.jpg?q=50&fit=crop&w=943&h=500&dpr=1.5",
@@ -184,7 +184,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 1,
+          ownerId: 2,
           title: "Rail Gun",
           imageUrl:
             "https://static.wikia.nocookie.net/expanse/images/2/2a/S01E04amunrarailgun17m45s.jpg",
@@ -194,7 +194,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          ownerId: 2,
+          ownerId: 1,
           title: "Force-field Generator",
           imageUrl:
             "https://static.wikia.nocookie.net/metroid/images/c/c6/Phendrana_Drifts_Screenshot_%28123%29.png",
