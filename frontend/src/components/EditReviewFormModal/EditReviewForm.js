@@ -32,7 +32,7 @@ function EditReviewForm({ setShowModal, reviewObject }) {
         <label>
           Title
           <input
-            id="productForm1"
+            id="reviewForm1"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -42,7 +42,7 @@ function EditReviewForm({ setShowModal, reviewObject }) {
         <div className="descriptionContainer">
           <label htmlFor="descriptionarea">Review</label>
           <textarea
-            id="productForm3"
+            id="reviewForm2"
             name="descriptionarea"
             value={review}
             onChange={(e) => setReview(e.target.value)}

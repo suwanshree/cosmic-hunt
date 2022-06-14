@@ -18,6 +18,13 @@ const ProductList = () => {
   const keys = Object.keys(products);
   return (
     <ul className="productsContainer" key={products.id}>
+      <div className="ripple-background">
+        <div className="circle xxlarge shade1"></div>
+        <div className="circle xlarge shade2"></div>
+        <div className="circle large shade3"></div>
+        <div className="circle mediun shade4"></div>
+        <div className="circle small shade5"></div>
+      </div>
       {keys
         .slice(0)
         .reverse()
@@ -33,6 +40,7 @@ const ProductList = () => {
             <NavLink to={`/api/products/${products[key].id}`}>
               {
                 <img
+                  className="product-image"
                   src={products[key].imageUrl}
                   alt={products[key].title}
                   onError={({ currentTarget }) => {
