@@ -3,18 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { fetchProducts, updateCurrentProductId } from "../../store/product";
 import { SearchContext } from "../../context/Search";
+import EditProductFormModal from "../EditProductFormModal";
+import DeleteProduct from "../DeleteProduct";
 import "./ProductsPage.css";
 
 const ProductList = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.productState.products);
+  const sessionUser = useSelector((state) => state.session.user);
   const { currentSearch } = useContext(SearchContext);
   const productsArray = Object.values(products);
-  
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-  
+
   const filteredProducts = productsArray?.filter((product) =>
     product.title?.toLowerCase().includes(currentSearch?.toLowerCase())
   );
@@ -23,8 +26,21 @@ const ProductList = () => {
     dispatch(updateCurrentProductId(id));
   };
 
+  const renderButtons = (product) => {
+    if (sessionUser) {
+      if (sessionUser.id === product.ownerId) {
+        return (
+          <div id="buttonsDivMain">
+            <EditProductFormModal user={sessionUser} />
+            <DeleteProduct user={sessionUser} />
+          </div>
+        );
+      }
+    }
+  };
+
   return (
-    <ul className="productsContainer" key={filteredProducts?.id}>
+    <div className="productsContainer" key={filteredProducts?.id}>
       <div className="ripple-background">
         <div className="circle xxlarge shade1"></div>
         <div className="circle xlarge shade2"></div>
@@ -37,14 +53,17 @@ const ProductList = () => {
           .slice(0)
           .reverse()
           .map((product) => (
-            <li
+            <div
               className="productContainer"
               key={product.id}
               onClick={() => handleOnClick(product.id)}
             >
-              <NavLink to={`/api/products/${product.id}`}>
-                {product.title}
-              </NavLink>
+              <div className="card-top">
+                <NavLink to={`/api/products/${product.id}`}>
+                  <h3 className="productTitle">{product.title}</h3>
+                </NavLink>
+                {renderButtons(product)}
+              </div>
               <NavLink to={`/api/products/${product.id}`}>
                 {
                   <img
@@ -59,10 +78,10 @@ const ProductList = () => {
                   />
                 }
               </NavLink>
-            </li>
+            </div>
           ))}
-          <h3 className="end-text">No more Products</h3>
-    </ul>
+      <h3 className="end-text">No more Products</h3>
+    </div>
   );
 };
 

@@ -65,3 +65,15 @@
   padding: 20px;
   font-size: 20pt;
 }
+
+.card-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productTitle {
+  font-size: 16pt;
+  margin-left: 14px;
+}

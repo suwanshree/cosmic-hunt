@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/product";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { fetchProducts } from "../../store/product";
 
 function EditProductForm({ setShowModal }) {
-  const history = useHistory();
   const dispatch = useDispatch();
   const productId = useSelector((state) => state.productState.currentProductId);
   const products = useSelector((state) => state.productState.products);
@@ -21,7 +20,7 @@ function EditProductForm({ setShowModal }) {
       sessionActions.updateProduct({ productId, title, imageUrl, description })
     )
       .then(() => setShowModal(false))
-      .then(() => history.push(`/products`))
+      .then(() => dispatch(fetchProducts()))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);

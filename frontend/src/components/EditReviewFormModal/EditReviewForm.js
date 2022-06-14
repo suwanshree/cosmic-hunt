@@ -9,6 +9,7 @@ function EditReviewForm({ setShowModal, reviewObject }) {
   const [title, setTitle] = useState(reviewObject.title);
   const [review, setReview] = useState(reviewObject.review);
   const [errors, setErrors] = useState([]);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);

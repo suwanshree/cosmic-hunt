@@ -53,7 +53,11 @@ const SingleProduct = () => {
     }
   }
 
-  if (sessionUser && sessionUser.id !== product?.ownerId && singleUserReview === true) {
+  if (
+    sessionUser &&
+    sessionUser.id !== product?.ownerId &&
+    singleUserReview === true
+  ) {
     newReviewLink = (
       <div className="buttonsDiv">
         <NewReviewFormModal user={sessionUser} />
@@ -83,11 +87,15 @@ const SingleProduct = () => {
             </div>
             {newReviewLink}
             <h2>Discussion:</h2>
-            <ul className="reviewsContainer" key={thisReviews}>
+            <div className="reviewsContainer" key={thisReviews}>
               {keys.map((key) => (
-                <li className="reviewContainer" key={thisReviews[key].id}>
+                <div className="reviewContainer" key={thisReviews[key].id}>
+                  <div>
+                    <h2>{thisReviews[key].title}</h2>
+                    {thisReviews[key].review}
+                  </div>
                   {sessionUser && sessionUser.id === thisReviews[key].userId && (
-                    <div id="buttonsDiv">
+                    <div id="buttonsDivReview">
                       <EditReviewFormModal
                         user={sessionUser}
                         reviewObject={thisReviews[key]}
@@ -98,11 +106,9 @@ const SingleProduct = () => {
                       />
                     </div>
                   )}
-                  <h2>{thisReviews[key].title}</h2>
-                  {thisReviews[key].review}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </>
       ) : (
