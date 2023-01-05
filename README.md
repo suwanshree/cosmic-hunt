@@ -2,7 +2,7 @@
 
 _Cosmic-Hunt_ is a clone of [Product Hunt](https://www.producthunt.com/ "Product hunt's Homepage"). Access to Cosmic-Hunt's MVP can be found [here](https://github.com/suwanshree/cosmic-hunt/wiki/Feature-List "Cosmic-Hunt's Wiki feature list").
 
-This is a website where the latest interstellar products and technologies can be found, and a place for productive discussions about them.
+Cosmic Hunt is a clone of Product Hunt where sci-fi interstellar products and technologies can be found. Products range from all the fan favorite sci-fi movies and shows. It is also a place for productive discussions about all the listed products on the website.
 
 ## Index
 
